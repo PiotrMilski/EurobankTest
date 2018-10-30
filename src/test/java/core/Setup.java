@@ -14,7 +14,7 @@ public class Setup {
 
     public static WebDriver driver;
     public static WebDriverWait wait;
-    private final int TIME_IN_SECONDS = 5;
+    private final int TIME_IN_SECONDS = 10;
 
     @BeforeSuite
     public void Setup() {

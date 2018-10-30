@@ -5,6 +5,7 @@
     <test name="Eurobank TestNG Test">
         <classes>
             <class name="tests.EurobankMainPageTest"/>
+            <class name="tests.EurobankIncorrectLoginOrPasswordTest"/>
         </classes>
     </test>
 </suite>
