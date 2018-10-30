@@ -11,7 +11,7 @@ import static dataproviders.Urls.LOGIN_PAGE_URL;
 
 public class EurobankMainPage {
 
-    @FindBy (xpath = "//*[class='login_button m-l-15']")
+    @FindBy (xpath = "//*[span='Zaloguj']")
     private WebElement mainPageLoginButton;
 
     public EurobankMainPage() {
