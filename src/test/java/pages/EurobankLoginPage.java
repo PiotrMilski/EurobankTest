@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static core.Setup.driver;
 import static core.Setup.wait;
+import static dataproviders.Urls.DEMO_LOGIN_PAGE_URL;
 import static dataproviders.Urls.LOGIN_PAGE_URL;
 
 public class EurobankLoginPage {
@@ -14,7 +15,7 @@ public class EurobankLoginPage {
     @FindBy (id = "login_id")
     private WebElement loginPageInputId;
 
-    @FindBy (id = "login_next")
+    @FindBy (xpath = "//*[@type='submit']")
     private WebElement loginPageSubmitButton;
 
     @FindBy (id = "login_password")
@@ -26,8 +27,11 @@ public class EurobankLoginPage {
     @FindBy (id = "logowanie_alarm_komunikat")
     private WebElement loginPageIncorrectLoginDataMessage;
 
-    @FindBy (id = "zaloguj_ponownie")
-    private WebElement loginPageLoginAgainButton;
+    @FindBy (xpath = "//*[@class='login-demo white']")
+    private WebElement loginDemoAccount;
+
+    //@FindBy (id = "zaloguj_ponownie")
+    //private WebElement loginPageLoginAgainButton;
 
     public EurobankLoginPage() {
         PageFactory.initElements(driver, this);
@@ -54,7 +58,12 @@ public class EurobankLoginPage {
 
     public void showExpectedResult(String text) {
         wait.until(ExpectedConditions.textToBePresentInElement(loginPageIncorrectLoginDataMessage, text));
-        wait.until(ExpectedConditions.visibilityOf(loginPageLoginAgainButton));
+    }
+
+    public EurobankDemoLoginPage goToEurobankDemoLoginPage() {
+        wait.until(ExpectedConditions.elementToBeClickable(loginDemoAccount)).click();
+        wait.until(driver -> driver.getCurrentUrl().equals(DEMO_LOGIN_PAGE_URL));
+        return new EurobankDemoLoginPage();
     }
 
 }

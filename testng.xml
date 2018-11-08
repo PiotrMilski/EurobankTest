@@ -6,6 +6,7 @@
         <classes>
             <class name="tests.EurobankMainPageTest"/>
             <class name="tests.EurobankIncorrectLoginOrPasswordTest"/>
+            <class name="tests.EurobankMoneyTransferTest"/>
         </classes>
     </test>
 </suite>
